@@ -1,0 +1,13 @@
+.header {
+    background-color: darkblue;
+
+    #header-flexbox {
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        #marvel-logo {
+            max-height: 100px;
+            width: auto;
+        }
+    }  
+}
