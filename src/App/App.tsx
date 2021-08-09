@@ -1,6 +1,4 @@
-import React, {
-  useState 
-} from 'react';
+import React from 'react';
 import {
   Route,
   Switch,
@@ -8,29 +6,30 @@ import {
 } from 'react-router-dom';
 import { Header, SearchResults, Welcome } from '../components';
 
+
 enum Path {
   result = "/results"
 }
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');
   const history = useHistory();
 
-  const onSearch = async () => {
+  const onSearch = (searchQuery: string): void => {
     if (searchQuery !== '') {
       history.push(`${Path.result}/${searchQuery}/1`);
     }
+    console.log('onSearch');
   };
 
   return (
     <>
-      <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} onSearch={onSearch} />
+      <Header onSearch={onSearch} />
       <Switch>
         <Route exact path='/'>
 					<Welcome />
 				</Route>
         <Route exact path={`${Path.result}/:searchQuery/:currentPage`}>
-					<SearchResults />
+					<SearchResults path={Path.result} />
 				</Route>
       </Switch>
 	  </>

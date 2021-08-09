@@ -1,21 +1,21 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { FlexBox, Alignment } from '@lumx/react';
-import { SearchField } from '../../components';
+import { SearchField } from '..';
 import logo from './logo.svg';
 
 interface IProps {
-	searchQuery: string;
-	setSearchQuery: (searchQuery: string) => void;
-	onSearch: () => void;
+	onSearch: (searchQuery: string) => void;
 }
 
-const Header: React.FC<IProps> = (props) => {
+const Header: React.FC<IProps> = ({ onSearch }) => {
+	console.log('render header');
+
 	return (
 		<header className="lumx-spacing-padding-big header">
 			<FlexBox id="header-flexbox" hAlign={Alignment.center}>
 				<img id="marvel-logo" src={logo} alt="marvel logo" />
-				<SearchField {...props} />
+				<SearchField onSearch={onSearch} />
 			</FlexBox>
 		</header>
 	);

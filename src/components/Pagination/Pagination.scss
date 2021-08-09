@@ -1,0 +1,26 @@
+#pagination {
+	height: 50px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 0px;
+
+	.navlink {
+		text-decoration: none;
+		height: 100%;
+		display: flex;
+		align-items: center;
+
+		.navlink-button {
+			height: 80%;
+			margin-right: 2px;
+		}
+		&.active {
+			.navlink-button {
+				height: 100%;
+			}
+		}
+	}
+}
