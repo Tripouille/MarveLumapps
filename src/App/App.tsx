@@ -19,7 +19,6 @@ function App() {
     if (searchQuery !== '') {
       history.push(`${Path.result}/${searchQuery}/1`);
     }
-    console.log('onSearch');
   };
 
   return (

@@ -9,8 +9,6 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = ({ onSearch }) => {
-	console.log('render header');
-
 	return (
 		<header className="lumx-spacing-padding-big header">
 			<FlexBox id="header-flexbox" hAlign={Alignment.center}>

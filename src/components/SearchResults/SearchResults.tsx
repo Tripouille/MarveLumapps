@@ -15,7 +15,6 @@ interface IProps {
 }
 
 const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
-	console.log("render SearchResult");
 	const characterPerPage = 4;
 	const { searchQuery, currentPage } = useParams<IParams>();
 	const [dataProvider, setDataProvider] = useState({dataStatus: EDataStatus.loading, data: {total: 0, values: []}});
@@ -38,7 +37,7 @@ const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
 	// eslint-disable-next-line
 	}, [searchQuery, currentPage]);
 
-	const successJSX = (
+	const successJSX = () => (
 		<section className="lumx-spacing-padding-horizontal-huge">
 			<CharactersList characters={dataProvider.data.values} detailsPath={detailsPath} />
 			<Pagination itemPerPage={characterPerPage} itemNumber={dataProvider.data.total} path={`${path}/${searchQuery}`} />

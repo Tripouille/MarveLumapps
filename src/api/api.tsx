@@ -96,3 +96,17 @@ export async function getCharacterComics(params: {}) {
     onsale: formatDate(comic.dates.find((date: any) => date.type === "onsaleDate").date)
   }));
 }
+
+export interface IEvent {
+  title: string;
+  description: string;
+}
+
+export async function getCharacterEvents(params: {}) {
+  const { data: characterEventsData } = await get('events', params);
+
+  return characterEventsData.data.results.map((event: IEvent): IEvent => ({
+    title: event.title,
+    description: event.description,
+  }));
+}

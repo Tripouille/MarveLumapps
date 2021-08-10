@@ -10,3 +10,5 @@ export { default as CharacterDetails} from './CharacterDetails/CharacterDetails'
 export { default as CharacterDetailsHeader} from './CharacterDetailsHeader/CharacterDetailsHeader';
 export { default as Comic} from './Comic/Comic';
 export { default as ComicsList} from './ComicsList/ComicsList';
+export { default as CharacterEvent} from './CharacterEvent/CharacterEvent';
+export { default as CharacterEventList} from './CharacterEventList/CharacterEventList';

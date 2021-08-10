@@ -11,18 +11,18 @@ export enum EDataStatus {
 
 export interface IProps {
 	dataStatus: EDataStatus;
-	successJSX: JSX.Element;
+	successJSX: () => JSX.Element;
 }
 
 /* 
-coucou
+** Return a JSX.Element based on the current dataStatus.
 */
 const DataConsumer: React.FC<IProps> = ({ dataStatus, successJSX }) => {
 	switch (dataStatus) {
 		case EDataStatus.loading:
 			return <BoxLoading color="#0000ff" speed={0.3} size="large" />
 		case EDataStatus.success:
-			return (successJSX);
+			return (successJSX());
 		case EDataStatus.failure:
 			return (
 				<Message className='message' kind={Kind.warning} hasBackground>

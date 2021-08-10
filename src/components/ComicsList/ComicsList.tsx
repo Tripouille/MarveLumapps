@@ -8,7 +8,7 @@ interface IProps {
 
 const ComicsList: React.FC<IProps> = ({ title, comics }) => {
 	const availableComics = comics?.length ? comics?.map((comic, index) => <Comic key={index} comic={comic} />) 
-											: <p id="error-message">No comics available</p>;
+											: <p className="error-message">No comics available</p>;
 										
 	return (
 		<div id="comics-list">

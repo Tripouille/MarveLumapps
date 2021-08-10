@@ -5,11 +5,10 @@ import { ICharacter } from '../../api/api'
 
 interface IProps {
 	character: ICharacter;
-	path: string
+	path: string;
 }
 
 const Character: React.FC<IProps> = ({ character, path }) => {
-	console.log('render Character');
 	return (
 		<FlexBox className="character-flexbox" vAlign={Alignment.left}>
 			<img className="character-image" src={character.image} alt={character.name}></img>

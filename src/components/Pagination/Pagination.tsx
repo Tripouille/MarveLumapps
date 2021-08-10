@@ -9,8 +9,6 @@ interface IProps {
 }
 
 const Pagination: React.FC<IProps> = ({ itemPerPage, itemNumber, path }) => {
-	console.log('render Pagination');
-
 	return (
 		<nav id="pagination">
 			{

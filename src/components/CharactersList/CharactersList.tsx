@@ -8,7 +8,6 @@ interface IProps {
 }
 
 const CharactersList: React.FC<IProps> = ({ characters, detailsPath }) => {
-	console.log("render CharactersList");
 	return (
 		<>
 			{
