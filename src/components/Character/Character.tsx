@@ -9,6 +9,7 @@ interface IProps {
 }
 
 const Character: React.FC<IProps> = ({ character, path }) => {
+	console.log('render Character');
 	return (
 		<FlexBox className="character-flexbox" vAlign={Alignment.left}>
 			<img className="character-image" src={character.image} alt={character.name}></img>

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: 'https://gateway.marvel.com/v1/public/',
-  timeout: 5000,
+  timeout: 3000,
 });
 
 const baseQueryParams = {
@@ -48,6 +48,6 @@ export async function getCharacters(params: {}) {
       image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
   }));
 
-  console.log(charactersData);
+  console.table(charactersData);
   return {total: charactersData.data.total, data: formatedCharactersData};
 }

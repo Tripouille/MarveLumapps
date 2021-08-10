@@ -8,6 +8,7 @@ interface IProps {
 }
 
 const SearchField: React.FC<IProps> = ({ onSearch }) => {
+	console.log('render SearchField');
 	const [searchQuery, setSearchQuery] = useState('');
 
 	const onEnterPress: React.EventHandler<React.KeyboardEvent<InputEvent>> = ({ key }) => {

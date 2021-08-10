@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const CharactersList: React.FC<IProps> = ({ characters, detailsPath }) => {
-	console.log("CharactersList render");
+	console.log("render CharactersList");
 
 	return (
 		<>

@@ -18,27 +18,33 @@ interface IProps {
 enum EStatus {
 	loading = "loading",
 	success = "success",
-	failure = "failure"
+	failure = "failure",
+	error = "error"
 }
 
-const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
+const SearchResult: React.FC<IProps> = React.memo(({ path, detailsPath }) => {
+	console.log("render SearchResult");
 	const characterPerPage = 4;
 	const { searchQuery, currentPage } = useParams<IParams>();
 	const [characters, setCharacters] = useState([]);
-	const [availableCharacters, setavailableCharacters] = useState(0);
+	const [availableCharacters, setAvailableCharacters] = useState(0);
 	const [status, setStatus] = useState<EStatus>(EStatus.loading);
-	console.log("SearchResult render");
 
 	useEffect(() => {
 		setCharacters([]);
-		setavailableCharacters(0);
+		setAvailableCharacters(0);
 		setStatus(EStatus.loading);
 		const loadCharacters = async () => {
-			const results = await getCharacters({ nameStartsWith: searchQuery.trim(), orderBy: 'name',
-										offset: (+currentPage - 1) * characterPerPage, limit: characterPerPage});
-			setCharacters(results.data);
-			setavailableCharacters(results.data.length > 0 ? results.total : 0);
-			setStatus(results.data.length > 0 ? EStatus.success : EStatus.failure);
+			try {
+				const results = await getCharacters({ nameStartsWith: searchQuery.trim(), orderBy: 'name',
+									offset: (+currentPage - 1) * characterPerPage, limit: characterPerPage});
+				console.table(results);
+				setCharacters(results.data);
+				setAvailableCharacters(results.data.length > 0 ? results.total : 0);
+				setStatus(results.data.length > 0 ? EStatus.success : EStatus.failure);
+			} catch {
+				setStatus(EStatus.error);
+			}
 		};
 		loadCharacters();
 	}, [searchQuery, currentPage]);
@@ -52,13 +58,16 @@ const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
 		</section>
 	);
 	else if (status === EStatus.failure) return (
-		<Message id='error-message' kind={Kind.error} hasBackground>
-			<p>
-				Oops something went wrong.
-			</p>
+		<Message id='error-message' kind={Kind.warning} hasBackground>
+			<p>No results available soory :(</p>
 		</Message>
 	);
+	else if (status === EStatus.error) return (
+		<Message id='error-message' kind={Kind.error} hasBackground>
+			<p>Oops something went wrong.</p>
+		</Message>
+	)
 	else return null;
-};
+});
 
 export default SearchResult;
