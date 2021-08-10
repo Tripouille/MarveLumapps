@@ -6,3 +6,5 @@ export { default as CharactersList } from './CharactersList/CharactersList';
 export { default as Pagination } from './Pagination/Pagination';
 export { default as Character } from './Character/Character';
 export { default as DataConsumer, EDataStatus } from './DataConsumer/DataConsumer';
+export { default as CharacterDetails} from './CharacterDetails/CharacterDetails';
+export { default as CharacterDetailsHeader} from './CharacterDetailsHeader/CharacterDetailsHeader';

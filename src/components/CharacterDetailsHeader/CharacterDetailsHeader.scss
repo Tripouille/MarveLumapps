@@ -1,0 +1,33 @@
+#character-header-flexbox {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+
+	#character-infos-flexbox {
+		height: 100%;
+		width: $left-column;
+		flex-direction: column;
+		align-items: flex-start;
+		
+		* {
+			margin: 10px;
+		}
+		#previous-page-button {
+			background-color: darkblue;
+			box-shadow: 2px 2px 5px black;
+			&:hover {
+				background-color: #2885f6;
+			}
+		}
+		#character-description {
+			margin-bottom: 20px;
+		}
+	}
+	#character-image {
+		height: auto;
+		margin-bottom: 20px;
+		width: $right-column;
+		align-self: center;
+	}
+}

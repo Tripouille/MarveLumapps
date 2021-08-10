@@ -51,3 +51,16 @@ export async function getCharacters(params: {}) {
   console.table(charactersData);
   return {total: charactersData.data.total, values: formatedCharactersData};
 }
+
+export async function getCharacter(characterId: string) {
+  const { data: charactersData } = await get(`characters/${characterId}`, {});
+  const formatedCharactersData = charactersData.data.results.map((character: IRawCharacter): ICharacter => ({
+      id: character.id,
+      description: setDescription(character.description),
+      name: character.name,
+      image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
+  }));
+
+  console.table(charactersData);
+  return {total: charactersData.data.total, values: formatedCharactersData};
+}

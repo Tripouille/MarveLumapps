@@ -4,7 +4,7 @@ import {
   Switch,
   useHistory,
 } from 'react-router-dom';
-import { Header, SearchResults, Welcome } from '../components';
+import { CharacterDetails, Header, SearchResults, Welcome } from '../components';
 
 
 enum Path {
@@ -31,6 +31,9 @@ function App() {
 				</Route>
         <Route exact path={`${Path.result}/:searchQuery/:currentPage`}>
 					<SearchResults path={Path.result} detailsPath={Path.details} />
+				</Route>
+        <Route exact path={`${Path.details}/:characterId`}>
+					<CharacterDetails />
 				</Route>
       </Switch>
 	  </>

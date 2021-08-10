@@ -9,14 +9,12 @@ interface IProps {
 
 const CharactersList: React.FC<IProps> = ({ characters, detailsPath }) => {
 	console.log("render CharactersList");
-
 	return (
 		<>
 			{
 				characters.map((character: ICharacter, i: number) => (
 					<Character key={i} character={character} path={`${detailsPath}/${character.id}`} />
 				))
-				
 			}
 		</>
 	);

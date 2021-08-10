@@ -14,6 +14,9 @@ export interface IProps {
 	successJSX: JSX.Element;
 }
 
+/* 
+coucou
+*/
 const DataConsumer: React.FC<IProps> = ({ dataStatus, successJSX }) => {
 	switch (dataStatus) {
 		case EDataStatus.loading:
@@ -23,11 +26,11 @@ const DataConsumer: React.FC<IProps> = ({ dataStatus, successJSX }) => {
 		case EDataStatus.failure:
 			return (
 				<Message className='message' kind={Kind.warning} hasBackground>
-					<p>No data available soory :(</p>
+					<p>No data available sorry :[</p>
 				</Message>);
 		case EDataStatus.error:
 			return (
-				<Message className='message' kind={Kind.warning} hasBackground>
+				<Message className='message' kind={Kind.error} hasBackground>
 					<p>Oops something went wrong. :(</p>
 				</Message>);
 		default:
