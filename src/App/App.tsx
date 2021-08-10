@@ -8,7 +8,8 @@ import { Header, SearchResults, Welcome } from '../components';
 
 
 enum Path {
-  result = "/results"
+  result = "/results",
+  details = "/details"
 }
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
 					<Welcome />
 				</Route>
         <Route exact path={`${Path.result}/:searchQuery/:currentPage`}>
-					<SearchResults path={Path.result} />
+					<SearchResults path={Path.result} detailsPath={Path.details} />
 				</Route>
       </Switch>
 	  </>

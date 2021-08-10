@@ -9,17 +9,13 @@ interface IProps {
 }
 
 const Character: React.FC<IProps> = ({ character, path }) => {
-	const onDetails = () => {
-		console.table(character);
-	};
-
 	return (
 		<FlexBox className="character-flexbox" vAlign={Alignment.left}>
 			<img className="character-image" src={character.image} alt={character.name}></img>
 			<FlexBox className="character-infos-flexbox" vAlign={Alignment.left}>
-				<Link className="link" onClick={onDetails} to={path}><h1 className="character-name">{character.name}</h1></Link>
+				<Link className="link" to={path}><h1 className="character-name">{character.name}</h1></Link>
 				<div className="character-description">{character.description}</div>
-				<Link className="link" onClick={onDetails} to={path}><Button className="see-details-button">See details</Button></Link>
+				<Link className="link" to={path}><Button className="see-details-button">See details</Button></Link>
 			</FlexBox>
 		</FlexBox>
 	);

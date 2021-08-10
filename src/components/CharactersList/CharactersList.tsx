@@ -4,16 +4,17 @@ import { ICharacter } from '../../api/api'
 
 interface IProps {
 	characters: ICharacter[];
+	detailsPath: string;
 }
 
-const CharactersList: React.FC<IProps> = ({ characters }) => {
+const CharactersList: React.FC<IProps> = ({ characters, detailsPath }) => {
 	console.log("CharactersList render");
 
 	return (
 		<>
 			{
 				characters.map((character: ICharacter, i: number) => (
-					<Character key={i} character={character} path="/details" />
+					<Character key={i} character={character} path={`${detailsPath}/${character.id}`} />
 				))
 				
 			}
