@@ -7,11 +7,11 @@ interface IProps {
 }
 
 const ComicsList: React.FC<IProps> = ({ title, comics }) => {
-	if (comics) return (
+	if (comics?.length) return (
 		<div id="comics-list">
 			<h2 id="list-title">{title}</h2>
 			{
-				comics!.map((comic, index) => <Comic key={index} comic={comic} />)
+				comics.map((comic, index) => <Comic key={index} comic={comic} />)
 			}
 		</div>
 	)
