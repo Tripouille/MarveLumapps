@@ -5,3 +5,4 @@ export { default as Welcome } from './Welcome/Welcome';
 export { default as CharactersList } from './CharactersList/CharactersList';
 export { default as Pagination } from './Pagination/Pagination';
 export { default as Character } from './Character/Character';
+export { default as DataConsumer, EDataStatus } from './DataConsumer/DataConsumer';

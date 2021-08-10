@@ -49,5 +49,5 @@ export async function getCharacters(params: {}) {
   }));
 
   console.table(charactersData);
-  return {total: charactersData.data.total, data: formatedCharactersData};
+  return {total: charactersData.data.total, values: formatedCharactersData};
 }
