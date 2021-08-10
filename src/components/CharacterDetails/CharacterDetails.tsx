@@ -1,8 +1,8 @@
 import { Alignment, FlexBox } from '@lumx/react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CharacterDetailsHeader, DataConsumer, EDataStatus } from '..';
-import { getCharacter } from '../../api/api';
+import { CharacterDetailsHeader, ComicsList, DataConsumer, EDataStatus } from '..';
+import { getCharacter, getCharacterComics } from '../../api/api';
 
 interface IParams {
 	characterId: string;
@@ -10,7 +10,7 @@ interface IParams {
 
 const CharacterDetails: React.FC = () => {
 	const { characterId } = useParams<IParams>();
-	const [dataProvider, setDataProvider] = useState({dataStatus: EDataStatus.loading, data: undefined});
+	const [dataProvider, setDataProvider] = useState({dataStatus: EDataStatus.loading, character: undefined, comics: undefined});
 
 	useEffect(() => {
 		if (dataProvider.dataStatus !== EDataStatus.loading)
@@ -18,10 +18,11 @@ const CharacterDetails: React.FC = () => {
 		const loadCharacters = async () => {
 			try {
 				const results = await getCharacter(characterId);
+				const comics = await getCharacterComics({characters: characterId, orderBy: '-onsaleDate', limit: 4});
 				const dataStatus = results.values.length > 0 ? EDataStatus.success : EDataStatus.failure;
-				const data = dataStatus === EDataStatus.success ? results.values[0] : undefined;
+				const character = dataStatus === EDataStatus.success ? results.values[0] : undefined;
 
-				setDataProvider({dataStatus: dataStatus, data: data});
+				setDataProvider({dataStatus: dataStatus, character: character, comics: comics});
 			} catch {
 				setDataProvider({...dataProvider, dataStatus: EDataStatus.error});
 			}
@@ -32,7 +33,10 @@ const CharacterDetails: React.FC = () => {
 
 	const successJSX = (
 		<FlexBox hAlign={Alignment.center} id="character-details-flexblox">
-			<CharacterDetailsHeader character={dataProvider.data} /> 
+			<CharacterDetailsHeader character={dataProvider.character} />
+			<FlexBox id="character-more-flexbox" vAlign={Alignment.center}>
+				<ComicsList title="Latest comics" comics={dataProvider.comics}/>
+			</FlexBox>
 		</FlexBox>
 	);
 

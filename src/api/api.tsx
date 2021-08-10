@@ -22,6 +22,18 @@ function setDescription(description: string): string {
   return descriptionTrimed.length > 0 ? descriptionTrimed : 'No description available';
 }
 
+function formatDate(rawDate: any) {
+  const date = new Date(rawDate);
+  let day = date.getDate().toString();
+  let month = (1 + date.getMonth()).toString();
+  let year = date.getFullYear();
+
+  day = day.length > 1 ? day : '0' + day;
+  month = month.length > 1 ? month : '0' + month;
+
+  return ([day, month, year].includes(NaN) ? "Unknown" : `${day}/${month}/${year}`);
+}
+
 interface IRawCharacter {
   id: string;
   description: string;
@@ -48,7 +60,6 @@ export async function getCharacters(params: {}) {
       image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
   }));
 
-  console.table(charactersData);
   return {total: charactersData.data.total, values: formatedCharactersData};
 }
 
@@ -61,6 +72,27 @@ export async function getCharacter(characterId: string) {
       image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
   }));
 
-  console.table(charactersData);
   return {total: charactersData.data.total, values: formatedCharactersData};
+}
+
+export interface IRawComic {
+  title: string;
+  prices: any;
+  dates: any;
+}
+
+export interface IComic {
+  title: string;
+  price: string;
+  onsale: string;
+}
+
+export async function getCharacterComics(params: {}) {
+  const { data: characterComicsData } = await get('comics', params);
+
+  return characterComicsData.data.results.map((comic: IRawComic): IComic => ({
+    title: comic.title,
+    price: comic.prices.find((price: any) => price.type === "printPrice").price,
+    onsale: formatDate(comic.dates.find((date: any) => date.type === "onsaleDate").date)
+  }));
 }
