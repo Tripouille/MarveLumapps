@@ -24,12 +24,9 @@ function setDescription(description: string): string {
 
 function formatDate(rawDate: any) {
   const date = new Date(rawDate);
-  let day = date.getDate().toString();
-  let month = (1 + date.getMonth()).toString();
+  let day = date.getDate().toString().padStart(2, '0');
+  let month = (1 + date.getMonth()).toString().padStart(2, '0');
   let year = date.getFullYear();
-
-  day = day.length > 1 ? day : '0' + day;
-  month = month.length > 1 ? month : '0' + month;
 
   return ([day, month, year].includes(NaN) ? "Unknown" : `${day}/${month}/${year}`);
 }
