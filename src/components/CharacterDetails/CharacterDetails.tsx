@@ -17,10 +17,11 @@ const CharacterDetails: React.FC = () => {
 			setDataProvider({...dataProvider, dataStatus: EDataStatus.loading});
 		const loadCharacters = async () => {
 			try {
-				const results = await getCharacter(characterId);
-				const comics = await getCharacterComics({characters: characterId, orderBy: '-onsaleDate', limit: 4});
-				const dataStatus = results.values.length > 0 ? EDataStatus.success : EDataStatus.failure;
-				const character = dataStatus === EDataStatus.success ? results.values[0] : undefined;
+				const charactersPromise = getCharacter(characterId);
+				const comicsPromise = getCharacterComics({characters: characterId, orderBy: '-onsaleDate', limit: 4});
+				const [characters, comics] = await Promise.all([charactersPromise, comicsPromise]);
+				const dataStatus = characters.values.length > 0 ? EDataStatus.success : EDataStatus.failure;
+				const character = dataStatus === EDataStatus.success ? characters.values[0] : undefined;
 
 				setDataProvider({dataStatus: dataStatus, character: character, comics: comics});
 			} catch {

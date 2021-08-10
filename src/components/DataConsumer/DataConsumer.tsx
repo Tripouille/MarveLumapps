@@ -31,7 +31,7 @@ const DataConsumer: React.FC<IProps> = ({ dataStatus, successJSX }) => {
 		case EDataStatus.error:
 			return (
 				<Message className='message' kind={Kind.error} hasBackground>
-					<p>Oops something went wrong. :(</p>
+					<p>Oops something went wrong :(</p>
 				</Message>);
 		default:
 			return null;
