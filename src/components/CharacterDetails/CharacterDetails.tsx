@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CharacterDetailsHeader, ComicsList, DataConsumer, EDataStatus } from '..';
 import { getCharacter, getCharacterComics, getCharacterEvents } from '../../api/api';
-import CharacterEventsList from '../CharacterEventList/CharacterEventList';
+import CharacterEventsList from '../CharacterEventsList/CharacterEventsList';
 
 interface IParams {
 	characterId: string;
