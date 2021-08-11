@@ -1,22 +1,25 @@
-import React from 'react';
-import { Comic } from '..';
-import { IComic } from '../../api/api';
+import React from "react";
+import { Comic } from "..";
+import { IComic } from "../../api/api";
 
 interface IProps {
-	title: string;
-	comics: IComic[];
+  title: string;
+  comics: IComic[];
 }
 
 const ComicsList: React.FC<IProps> = ({ title, comics }) => {
-	const availableComics = comics.length ? comics.map((comic, index) => <Comic key={index} comic={comic} />) 
-										: <p className="error-message">No comics available</p>;
-										
-	return (
-		<div id="comics-list">
-			<h2 id="list-title">{title}</h2>
-			{availableComics}
-		</div>
-	);
-}
+  const availableComics = comics.length ? (
+    comics.map((comic, index) => <Comic key={index} comic={comic} />)
+  ) : (
+    <p className="error-message">No comics available</p>
+  );
+
+  return (
+    <div id="comics-list">
+      <h2 id="list-title">{title}</h2>
+      {availableComics}
+    </div>
+  );
+};
 
 export default ComicsList;

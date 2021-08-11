@@ -1,15 +1,15 @@
 .comic-flexbox {
-	flex-direction: column;
-	box-sizing: border-box;
-	height: auto;
-	width: 90%;
-	padding: 10px 20px;
-	align-items: flex-start;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: auto;
+  width: 90%;
+  padding: 10px 20px;
+  align-items: flex-start;
 
-	* {
-		width: 100%;
-	}
-	.comic-name {
-		font-weight: bold;
-	}
+  * {
+    width: 100%;
+  }
+  .comic-name {
+    font-weight: bold;
+  }
 }

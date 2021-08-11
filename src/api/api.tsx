@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://gateway.marvel.com/v1/public/',
+  baseURL: "https://gateway.marvel.com/v1/public/",
   timeout: 3000,
 });
 
@@ -9,26 +9,31 @@ const baseQueryParams = {
   apikey: process.env.REACT_APP_MARVEL_API_KEY,
 };
 
-const get = (url: string, query: {}) => instance.get(url, {
-  params: {
-    ...query,
-    ...baseQueryParams,
-  },
-});
+const get = (url: string, query: {}) =>
+  instance.get(url, {
+    params: {
+      ...query,
+      ...baseQueryParams,
+    },
+  });
 
 function setDescription(description: string): string {
-  const descriptionTrimed = description.trim()
+  const descriptionTrimed = description.trim();
 
-  return descriptionTrimed.length > 0 ? descriptionTrimed : 'No description available';
+  return descriptionTrimed.length > 0
+    ? descriptionTrimed
+    : "No description available";
 }
 
 function formatDate(rawDate: any) {
   const date = new Date(rawDate);
-  let day = date.getDate().toString().padStart(2, '0');
-  let month = (1 + date.getMonth()).toString().padStart(2, '0');
+  let day = date.getDate().toString().padStart(2, "0");
+  let month = (1 + date.getMonth()).toString().padStart(2, "0");
   let year = date.getFullYear();
 
-  return ([day, month, year].includes(NaN) ? "Unknown" : `${day}/${month}/${year}`);
+  return [day, month, year].includes(NaN)
+    ? "Unknown"
+    : `${day}/${month}/${year}`;
 }
 
 interface IRawCharacter {
@@ -49,27 +54,31 @@ export interface ICharacter {
 }
 
 export async function getCharacters(params: {}) {
-  const { data: charactersData } = await get('characters', params);
-  const formatedCharactersData = charactersData.data.results.map((character: IRawCharacter): ICharacter => ({
+  const { data: charactersData } = await get("characters", params);
+  const formatedCharactersData = charactersData.data.results.map(
+    (character: IRawCharacter): ICharacter => ({
       id: character.id,
       description: setDescription(character.description),
       name: character.name,
       image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
-  }));
+    })
+  );
 
-  return {total: charactersData.data.total, values: formatedCharactersData};
+  return { total: charactersData.data.total, values: formatedCharactersData };
 }
 
 export async function getCharacter(characterId: string) {
   const { data: charactersData } = await get(`characters/${characterId}`, {});
-  const formatedCharactersData = charactersData.data.results.map((character: IRawCharacter): ICharacter => ({
+  const formatedCharactersData = charactersData.data.results.map(
+    (character: IRawCharacter): ICharacter => ({
       id: character.id,
       description: setDescription(character.description),
       name: character.name,
       image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
-  }));
+    })
+  );
 
-  return {total: charactersData.data.total, values: formatedCharactersData};
+  return { total: charactersData.data.total, values: formatedCharactersData };
 }
 
 export interface IRawComic {
@@ -85,13 +94,18 @@ export interface IComic {
 }
 
 export async function getCharacterComics(params: {}) {
-  const { data: characterComicsData } = await get('comics', params);
+  const { data: characterComicsData } = await get("comics", params);
 
-  return characterComicsData.data.results.map((comic: IRawComic): IComic => ({
-    title: comic.title,
-    price: comic.prices.find((price: any) => price.type === "printPrice").price,
-    onsale: formatDate(comic.dates.find((date: any) => date.type === "onsaleDate").date)
-  }));
+  return characterComicsData.data.results.map(
+    (comic: IRawComic): IComic => ({
+      title: comic.title,
+      price: comic.prices.find((price: any) => price.type === "printPrice")
+        .price,
+      onsale: formatDate(
+        comic.dates.find((date: any) => date.type === "onsaleDate").date
+      ),
+    })
+  );
 }
 
 export interface IEvent {
@@ -100,10 +114,12 @@ export interface IEvent {
 }
 
 export async function getCharacterEvents(params: {}) {
-  const { data: characterEventsData } = await get('events', params);
+  const { data: characterEventsData } = await get("events", params);
 
-  return characterEventsData.data.results.map((event: IEvent): IEvent => ({
-    title: event.title,
-    description: event.description,
-  }));
+  return characterEventsData.data.results.map(
+    (event: IEvent): IEvent => ({
+      title: event.title,
+      description: event.description,
+    })
+  );
 }

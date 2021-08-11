@@ -1,40 +1,40 @@
 .character-flexbox {
-	flex-direction: row;
-	justify-content: space-between;
-	height: auto;
-	width: 90%;
-	border: solid 2px black;
-	margin: 10px auto;
-	padding: 10px 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  height: auto;
+  width: 90%;
+  border: solid 2px black;
+  margin: 10px auto;
+  padding: 10px 20px;
 
-	.character-image {
-		height: auto;
-		width: 20%;
-		margin: 0px 10px;
-		padding-right: 20px;
-	}
-	
-	.character-infos-flexbox {
-		height: auto;
-		width: 80%;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: 5px 0px;
+  .character-image {
+    height: auto;
+    width: 20%;
+    margin: 0px 10px;
+    padding-right: 20px;
+  }
 
-		.character-description {
-			overflow: auto;
-			margin-top: 1em;
-		}
+  .character-infos-flexbox {
+    height: auto;
+    width: 80%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0px;
 
-		.see-details-button {
-			background-color: darkblue;
-			box-shadow: 2px 2px 5px black;
-			width: 25%;
-			margin-top: 1em;
-		}
+    .character-description {
+      overflow: auto;
+      margin-top: 1em;
+    }
 
-		.link {
-			text-decoration: none;
-		}
-	}
+    .see-details-button {
+      background-color: darkblue;
+      box-shadow: 2px 2px 5px black;
+      width: 25%;
+      margin-top: 1em;
+    }
+
+    .link {
+      text-decoration: none;
+    }
+  }
 }

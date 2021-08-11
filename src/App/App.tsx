@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
+import { Route, Switch, useHistory } from "react-router-dom";
 import {
-  Route,
-  Switch,
-  useHistory,
-} from 'react-router-dom';
-import { CharacterDetails, Header, SearchResults, Welcome } from '../components';
-
+  CharacterDetails,
+  Header,
+  SearchResults,
+  Welcome,
+} from "../components";
 
 enum Path {
   result = "/results",
-  details = "/details"
+  details = "/details",
 }
 
 function App() {
   const history = useHistory();
 
   const onSearch = (searchQuery: string): void => {
-    if (searchQuery !== '') {
+    if (searchQuery !== "") {
       history.push(`${Path.result}/${searchQuery}/1`);
     }
   };
@@ -25,17 +25,17 @@ function App() {
     <>
       <Header onSearch={onSearch} />
       <Switch>
-        <Route exact path='/'>
-					<Welcome />
-				</Route>
+        <Route exact path="/">
+          <Welcome />
+        </Route>
         <Route exact path={`${Path.result}/:searchQuery/:currentPage`}>
-					<SearchResults path={Path.result} detailsPath={Path.details} />
-				</Route>
+          <SearchResults path={Path.result} detailsPath={Path.details} />
+        </Route>
         <Route exact path={`${Path.details}/:characterId`}>
-					<CharacterDetails />
-				</Route>
+          <CharacterDetails />
+        </Route>
       </Switch>
-	  </>
+    </>
   );
 }
 

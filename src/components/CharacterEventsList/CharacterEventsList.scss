@@ -1,13 +1,13 @@
 #events-collection {
-	flex-direction: column;
-	width: $left-column;
-	border: solid 2px black;
-	
-	#events-collection-title {
-		padding: 10px 20px;
-	}
-	
-	.error-message {
-		padding: 10px 20px;
-	}
+  flex-direction: column;
+  width: $left-column;
+  border: solid 2px black;
+
+  #events-collection-title {
+    padding: 10px 20px;
+  }
+
+  .error-message {
+    padding: 10px 20px;
+  }
 }

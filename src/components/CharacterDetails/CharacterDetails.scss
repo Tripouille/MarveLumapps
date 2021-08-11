@@ -2,14 +2,14 @@ $left-column: 69%;
 $right-column: 30%;
 
 #character-details-flexblox {
-	width: 100%;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 10px 20px;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 20px;
 
-	#character-more-flexbox {
-		flex-direction: row;
-		justify-content: space-between;
-		width: 100%;
-	}
+  #character-more-flexbox {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
 }

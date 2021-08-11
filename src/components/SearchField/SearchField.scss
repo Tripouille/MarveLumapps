@@ -1,19 +1,19 @@
 #search-flexbox {
-    height: 100%;
+  height: 100%;
 
-    .lumx-text-field {
-        .lumx-text-field__wrapper {
-            height: 100%;
-            input {
-                font-size: large !important;
-            }
-        }
-        height: 50%;
-        padding: 0px;
+  .lumx-text-field {
+    .lumx-text-field__wrapper {
+      height: 100%;
+      input {
+        font-size: large !important;
+      }
     }
+    height: 50%;
+    padding: 0px;
+  }
 
-    #search-button {
-        height: 50%;
-        background-color: blue;
-    }
+  #search-button {
+    height: 50%;
+    background-color: blue;
+  }
 }
