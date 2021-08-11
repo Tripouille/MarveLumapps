@@ -11,7 +11,7 @@ interface IParams {
 
 const CharacterDetails: React.FC = () => {
 	const { characterId } = useParams<IParams>();
-	const [dataProvider, setDataProvider] = useState({dataStatus: EDataStatus.loading, character: undefined, comics: undefined, events: undefined});
+	const [dataProvider, setDataProvider] = useState({dataStatus: EDataStatus.loading, character: undefined, comics: [], events: []});
 
 	useEffect(() => {
 		if (dataProvider.dataStatus !== EDataStatus.loading)
