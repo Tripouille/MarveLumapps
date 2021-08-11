@@ -25,15 +25,13 @@ function setDescription(description: string): string {
     : "No description available";
 }
 
-function formatDate(rawDate: any) {
-  const date = new Date(rawDate);
-  let day = date.getDate().toString().padStart(2, "0");
-  let month = (1 + date.getMonth()).toString().padStart(2, "0");
-  let year = date.getFullYear();
+function formatDate(rawDate: string): string {
+  const date: Date = new Date(rawDate);
+  let day: string = date.getDate().toString().padStart(2, "0");
+  let month: string = (1 + date.getMonth()).toString().padStart(2, "0");
+  let year: number = date.getFullYear();
 
-  return [day, month, year].includes(NaN)
-    ? "Unknown"
-    : `${day}/${month}/${year}`;
+  return isNaN(year) ? "Unknown" : `${day}/${month}/${year}`;
 }
 
 interface IRawCharacter {
