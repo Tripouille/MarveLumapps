@@ -1,5 +1,6 @@
 $left-column: 69%;
 $right-column: 30%;
+$animation-duration: 0.3s;
 
 #character-details-flexblox {
   width: 100%;
@@ -11,5 +12,23 @@ $right-column: 30%;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

@@ -1,6 +1,7 @@
 #comics-list {
   width: $right-column;
   border: solid 2px black;
+  animation: $animation-duration ease-out 0s slideInFromRight;
 
   #list-title {
     padding: 10px 20px;

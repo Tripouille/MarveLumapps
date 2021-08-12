@@ -9,6 +9,7 @@
     width: $left-column;
     flex-direction: column;
     align-items: flex-start;
+    animation: $animation-duration ease-out 0s slideInFromLeft;
 
     * {
       margin: 10px;
@@ -29,5 +30,6 @@
     margin-bottom: 20px;
     width: $right-column;
     align-self: center;
+    animation: $animation-duration ease-out 0s slideInFromRight;
   }
 }
