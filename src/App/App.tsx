@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { CharacterDetails } from "../components/CharacterDetails";
 import { Header } from "../components/Header";
 import { SearchResults, Welcome } from "../components";
@@ -10,17 +10,9 @@ enum Path {
 }
 
 function App() {
-  const history = useHistory();
-
-  const onSearch = (searchQuery: string): void => {
-    if (searchQuery !== "") {
-      history.push(`${Path.result}/${searchQuery}/1`);
-    }
-  };
-
   return (
     <>
-      <Header onSearch={onSearch} />
+      <Header resultPath={Path.result} />
       <Switch>
         <Route exact path="/">
           <Welcome />

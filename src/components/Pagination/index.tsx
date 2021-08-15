@@ -22,7 +22,7 @@ export const Pagination: React.FC<IProps> = ({
   };
 
   return (
-    <nav id="pagination">
+    <nav className="pagination">
       {[...Array(Math.ceil(itemNumber / itemPerPage))].map((_, i) => (
         <NavLink className="navlink" key={i + 1} to={`${path}/${i + 1}`}>
           <Button className={getClassName(i + 1)}>{i + 1}</Button>

@@ -5,15 +5,15 @@ import { SearchField } from "..";
 import logo from "./logo.svg";
 
 interface IProps {
-  onSearch: (searchQuery: string) => void;
+  resultPath: string;
 }
 
-export const Header: React.FC<IProps> = ({ onSearch }) => {
+export const Header: React.FC<IProps> = ({ resultPath }) => {
   return (
     <header className="lumx-spacing-padding-big header">
-      <FlexBox id="header-flexbox" hAlign={Alignment.center}>
-        <img id="marvel-logo" src={logo} alt="marvel logo" />
-        <SearchField onSearch={onSearch} />
+      <FlexBox className="header-flexbox" hAlign={Alignment.center}>
+        <img className="marvel-logo" src={logo} alt="marvel logo" />
+        <SearchField resultPath={resultPath} />
       </FlexBox>
     </header>
   );

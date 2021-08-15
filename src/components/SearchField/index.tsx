@@ -2,24 +2,32 @@
 import React, { useState } from "react";
 import { Alignment, Button, FlexBox, TextField, Theme } from "@lumx/react";
 import { mdiMagnify } from "@lumx/icons";
+import { useHistory } from "react-router-dom";
 
 interface IProps {
-  onSearch: (searchQuery: string) => void;
+  resultPath: string;
 }
 
-const SearchField: React.FC<IProps> = ({ onSearch }) => {
+const SearchField: React.FC<IProps> = ({ resultPath }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const history = useHistory();
+
+  const onSearch = (): void => {
+    if (searchQuery !== "") {
+      history.push(`${resultPath}/${searchQuery}/1`);
+    }
+  };
 
   const onEnterPress: React.EventHandler<React.KeyboardEvent<InputEvent>> = ({
     key,
   }) => {
     if (key === "Enter") {
-      onSearch(searchQuery);
+      onSearch();
     }
   };
 
   return (
-    <FlexBox id="search-flexbox" hAlign={Alignment.center}>
+    <FlexBox className="search-container" hAlign={Alignment.center}>
       <TextField
         theme={Theme.dark}
         placeholder="Search ..."
@@ -28,7 +36,7 @@ const SearchField: React.FC<IProps> = ({ onSearch }) => {
         onChange={setSearchQuery}
         onKeyPress={onEnterPress}
       />
-      <Button id="search-button" onClick={onSearch.bind(this, searchQuery)}>
+      <Button className="search-button" onClick={onSearch}>
         Search
       </Button>
     </FlexBox>
