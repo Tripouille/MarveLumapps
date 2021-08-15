@@ -1,6 +1,6 @@
 import React from "react";
 import { Alignment, FlexBox } from "@lumx/react";
-import { CharacterEvent } from "..";
+import { CharacterEvent } from "../CharacterEvent";
 import { IEvent } from "../../Utils/types";
 
 interface IProps {
@@ -8,7 +8,7 @@ interface IProps {
   events: IEvent[];
 }
 
-const CharacterEventsList: React.FC<IProps> = ({ title, events }) => {
+export const CharacterEventsList: React.FC<IProps> = ({ title, events }) => {
   const availableEvents = events.length ? (
     events.map((event, index) => <CharacterEvent key={index} event={event} />)
   ) : (
@@ -16,11 +16,9 @@ const CharacterEventsList: React.FC<IProps> = ({ title, events }) => {
   );
 
   return (
-    <FlexBox vAlign={Alignment.left} id="events-collection">
-      <h2 id="events-collection-title">{title}</h2>
+    <FlexBox vAlign={Alignment.left} className="events-collection">
+      <h2 className="events-collection-title">{title}</h2>
       {availableEvents}
     </FlexBox>
   );
 };
-
-export default CharacterEventsList;

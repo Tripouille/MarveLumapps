@@ -23,5 +23,3 @@ export const CharactersList: React.FC<IProps> = ({
     </>
   );
 };
-
-export default CharactersList;

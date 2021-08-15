@@ -6,7 +6,7 @@ interface IProps {
   event: IEvent;
 }
 
-const CharacterEvent: React.FC<IProps> = ({ event }) => {
+export const CharacterEvent: React.FC<IProps> = ({ event }) => {
   return (
     <FlexBox vAlign={Alignment.left} className="event-container">
       <h3 className="event-title">{event.title}</h3>
@@ -14,5 +14,3 @@ const CharacterEvent: React.FC<IProps> = ({ event }) => {
     </FlexBox>
   );
 };
-
-export default CharacterEvent;

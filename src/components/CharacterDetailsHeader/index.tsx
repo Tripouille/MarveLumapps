@@ -7,7 +7,7 @@ interface IProps {
   character?: ICharacter;
 }
 
-const CharacterDetailsHeader: React.FC<IProps> = ({ character }) => {
+export const CharacterDetailsHeader: React.FC<IProps> = ({ character }) => {
   const history = useHistory();
 
   const previousPage = () => {
@@ -32,5 +32,3 @@ const CharacterDetailsHeader: React.FC<IProps> = ({ character }) => {
     </FlexBox>
   ) : null;
 };
-
-export default CharacterDetailsHeader;

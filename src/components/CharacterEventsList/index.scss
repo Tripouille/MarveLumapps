@@ -1,10 +1,11 @@
-#events-collection {
+.events-collection {
   flex-direction: column;
   width: $left-column;
   border: solid 2px black;
   animation: $animation-duration ease-out 0s slideInFromLeft;
 
-  #events-collection-title, .error-message {
+  .events-collection-title,
+  .error-message {
     padding: 10px 20px;
   }
 }

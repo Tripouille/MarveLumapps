@@ -1,19 +1,15 @@
 import { Alignment, FlexBox } from "@lumx/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  CharacterDetailsHeader,
-  ComicsList,
-  DataConsumer,
-  EDataStatus,
-} from "..";
+import { CharacterDetailsHeader } from "../CharacterDetailsHeader";
+import { ComicsList, DataConsumer, EDataStatus } from "..";
 import {
   getCharacter,
   getCharacterComics,
   getCharacterEvents,
 } from "../../api";
 import { ICharacterDetails } from "../../Utils/types";
-import CharacterEventsList from "../CharacterEventsList";
+import { CharacterEventsList } from "../CharacterEventsList";
 
 interface IParams {
   characterId: string;
