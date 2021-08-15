@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { CharacterDetails } from "../components/CharacterDetails";
 import { Header } from "../components/Header";
 import { SearchResults } from "../components/SearchResults";
-import { Welcome } from "../components";
+import { Welcome } from "../components/Welcome";
 
 enum Path {
   result = "/results",
