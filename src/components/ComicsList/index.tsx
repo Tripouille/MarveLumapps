@@ -15,8 +15,8 @@ const ComicsList: React.FC<IProps> = ({ title, comics }) => {
   );
 
   return (
-    <div id="comics-list">
-      <h2 id="list-title">{title}</h2>
+    <div className="comics-container">
+      <h2 className="list-title">{title}</h2>
       {availableComics}
     </div>
   );

@@ -12,7 +12,7 @@ import {
 
 const instance = axios.create({
   baseURL: "https://gateway.marvel.com/v1/public/",
-  timeout: 300,
+  timeout: 3000,
 });
 
 const baseQueryParams = {

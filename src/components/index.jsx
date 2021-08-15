@@ -8,4 +8,4 @@ export {
   default as DataConsumer,
   EDataStatus,
 } from "./DataConsumer/DataConsumer";
-export { default as ComicsList } from "./ComicsList/ComicsList";
+export { default as ComicsList } from "./ComicsList";
