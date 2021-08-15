@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CharactersList, Pagination } from "..";
 import { getCharacters } from "../../api";
-import { DataConsumer, EDataStatus } from "..";
+import { DataConsumer, EDataStatus } from "../DataConsumer";
 import { ICharacter } from "../../Utils/types";
 
 interface IParams {

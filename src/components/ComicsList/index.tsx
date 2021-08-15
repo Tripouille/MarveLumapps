@@ -7,7 +7,7 @@ interface IProps {
   comics: IComic[];
 }
 
-const ComicsList: React.FC<IProps> = ({ title, comics }) => {
+export const ComicsList: React.FC<IProps> = ({ title, comics }) => {
   const availableComics = comics.length ? (
     comics.map((comic, index) => <Comic key={index} comic={comic} />)
   ) : (
@@ -21,5 +21,3 @@ const ComicsList: React.FC<IProps> = ({ title, comics }) => {
     </div>
   );
 };
-
-export default ComicsList;

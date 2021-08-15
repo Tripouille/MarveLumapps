@@ -2,7 +2,8 @@ import { Alignment, FlexBox } from "@lumx/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CharacterDetailsHeader } from "../CharacterDetailsHeader";
-import { ComicsList, DataConsumer, EDataStatus } from "..";
+import { ComicsList } from "../ComicsList";
+import { DataConsumer, EDataStatus } from "../DataConsumer";
 import {
   getCharacter,
   getCharacterComics,
