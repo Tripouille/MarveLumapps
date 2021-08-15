@@ -4,11 +4,7 @@ import { CharacterDetails } from "../components/CharacterDetails";
 import { Header } from "../components/Header";
 import { SearchResults } from "../components/SearchResults";
 import { Welcome } from "../components/Welcome";
-
-enum Path {
-  result = "/results",
-  details = "/details",
-}
+import { Path } from "../Utils/constants";
 
 function App() {
   return (
