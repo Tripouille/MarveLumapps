@@ -13,7 +13,7 @@ import {
   getCharacterEvents,
 } from "../../api";
 import { ICharacterDetails } from "../../Utils/types";
-import CharacterEventsList from "../CharacterEventsList/CharacterEventsList";
+import CharacterEventsList from "../CharacterEventsList";
 
 interface IParams {
   characterId: string;
