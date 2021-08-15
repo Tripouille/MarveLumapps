@@ -15,10 +15,10 @@ code {
 }
 
 @import "./App/App.scss";
-@import "./components/Header/Header.scss";
+@import "./components/Header";
 @import "./components/SearchField/SearchField.scss";
 @import "./components/Welcome/Welcome.scss";
-@import "./components/Pagination/Pagination.scss";
+@import "./components/Pagination";
 @import "./components/Character";
 @import "./components/SearchResults/SearchResults.scss";
 @import "./components/MyMessage";

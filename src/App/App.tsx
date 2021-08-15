@@ -1,7 +1,8 @@
 import React from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { CharacterDetails } from "../components/CharacterDetails";
-import { Header, SearchResults, Welcome } from "../components";
+import { Header } from "../components/Header";
+import { SearchResults, Welcome } from "../components";
 
 enum Path {
   result = "/results",

@@ -8,7 +8,7 @@ interface IProps {
   onSearch: (searchQuery: string) => void;
 }
 
-const Header: React.FC<IProps> = ({ onSearch }) => {
+export const Header: React.FC<IProps> = ({ onSearch }) => {
   return (
     <header className="lumx-spacing-padding-big header">
       <FlexBox id="header-flexbox" hAlign={Alignment.center}>
@@ -18,5 +18,3 @@ const Header: React.FC<IProps> = ({ onSearch }) => {
     </header>
   );
 };
-
-export default Header;

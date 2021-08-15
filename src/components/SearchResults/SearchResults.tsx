@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CharactersList, Pagination } from "..";
+import { CharactersList } from "../CharactersList";
+import { Pagination } from "../Pagination";
 import { getCharacters } from "../../api";
 import { DataConsumer, EDataStatus } from "../DataConsumer";
 import { ICharacter } from "../../Utils/types";
@@ -59,6 +60,7 @@ const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
         itemPerPage={characterPerPage}
         itemNumber={dataProvider.data.total}
         path={`${path}/${searchQuery}`}
+        activePage={+currentPage}
       />
     </section>
   );
