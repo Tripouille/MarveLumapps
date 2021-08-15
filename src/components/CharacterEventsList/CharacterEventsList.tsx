@@ -1,7 +1,7 @@
 import React from "react";
 import { Alignment, FlexBox } from "@lumx/react";
 import { CharacterEvent } from "..";
-import { IEvent } from "../../api/api";
+import { IEvent } from "../../Utils/types";
 
 interface IProps {
   title: string;

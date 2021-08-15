@@ -11,7 +11,8 @@ import {
   getCharacter,
   getCharacterComics,
   getCharacterEvents,
-} from "../../api/api";
+} from "../../api";
+import { ICharacterDetails } from "../../Utils/types";
 import CharacterEventsList from "../CharacterEventsList/CharacterEventsList";
 
 interface IParams {
@@ -20,11 +21,16 @@ interface IParams {
 
 const CharacterDetails: React.FC = () => {
   const { characterId } = useParams<IParams>();
-  const [dataProvider, setDataProvider] = useState({
+  const [dataProvider, setDataProvider] = useState<{
+    dataStatus: EDataStatus;
+    data: ICharacterDetails;
+  }>({
     dataStatus: EDataStatus.loading,
-    character: undefined,
-    comics: [],
-    events: [],
+    data: {
+      character: undefined,
+      comics: [],
+      events: [],
+    },
   });
 
   useEffect(() => {
@@ -56,9 +62,11 @@ const CharacterDetails: React.FC = () => {
 
         setDataProvider({
           dataStatus: dataStatus,
-          character: character,
-          comics: comics,
-          events: events,
+          data: {
+            character: character,
+            comics: comics,
+            events: events,
+          },
         });
       } catch {
         setDataProvider({ ...dataProvider, dataStatus: EDataStatus.error });
@@ -70,10 +78,13 @@ const CharacterDetails: React.FC = () => {
 
   const successJSX = () => (
     <FlexBox hAlign={Alignment.center} id="character-details-flexblox">
-      <CharacterDetailsHeader character={dataProvider.character} />
+      <CharacterDetailsHeader character={dataProvider.data.character} />
       <FlexBox id="character-more-flexbox" vAlign={Alignment.center}>
-        <CharacterEventsList title="All events" events={dataProvider.events} />
-        <ComicsList title="Latest comics" comics={dataProvider.comics} />
+        <CharacterEventsList
+          title="All events"
+          events={dataProvider.data.events}
+        />
+        <ComicsList title="Latest comics" comics={dataProvider.data.comics} />
       </FlexBox>
     </FlexBox>
   );

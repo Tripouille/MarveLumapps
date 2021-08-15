@@ -1,6 +1,6 @@
 import React from "react";
 import { Character } from "..";
-import { ICharacter } from "../../api/api";
+import { ICharacter } from "../../Utils/types";
 
 interface IProps {
   characters: ICharacter[];

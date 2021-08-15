@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CharactersList, Pagination } from "..";
-import { getCharacters } from "../../api/api";
+import { getCharacters } from "../../api";
 import { DataConsumer, EDataStatus } from "..";
+import { ICharacter } from "../../Utils/types";
 
 interface IParams {
   searchQuery: string;
@@ -17,7 +18,10 @@ interface IProps {
 const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
   const characterPerPage = 4;
   const { searchQuery, currentPage } = useParams<IParams>();
-  const [dataProvider, setDataProvider] = useState({
+  const [dataProvider, setDataProvider] = useState<{
+    dataStatus: EDataStatus;
+    data: { total: number; values: ICharacter[] };
+  }>({
     dataStatus: EDataStatus.loading,
     data: { total: 0, values: [] },
   });
