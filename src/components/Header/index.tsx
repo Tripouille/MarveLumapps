@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { FlexBox, Alignment } from "@lumx/react";
-import { SearchField } from "..";
+import { SearchField } from "../SearchField";
 import logo from "./logo.svg";
 
 interface IProps {

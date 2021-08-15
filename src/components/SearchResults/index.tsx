@@ -11,12 +11,15 @@ interface IParams {
   currentPage: string;
 }
 
-interface IProps {
+interface ISearchResultsProps {
   path: string;
   detailsPath: string;
 }
 
-const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
+export const SearchResults: React.FC<ISearchResultsProps> = ({
+  path,
+  detailsPath,
+}) => {
   const characterPerPage = 4;
   const { searchQuery, currentPage } = useParams<IParams>();
   const [dataProvider, setDataProvider] = useState<{
@@ -28,9 +31,8 @@ const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
   });
 
   useEffect(() => {
-    if (dataProvider.dataStatus !== EDataStatus.loading)
-      setDataProvider({ ...dataProvider, dataStatus: EDataStatus.loading });
-    const loadCharacters = async () => {
+    //loadCharacters
+    (async () => {
       try {
         const results = await getCharacters({
           nameStartsWith: searchQuery.trim(),
@@ -45,8 +47,7 @@ const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
       } catch {
         setDataProvider({ ...dataProvider, dataStatus: EDataStatus.error });
       }
-    };
-    loadCharacters();
+    })();
     // eslint-disable-next-line
   }, [searchQuery, currentPage]);
 
@@ -72,5 +73,3 @@ const SearchResult: React.FC<IProps> = ({ path, detailsPath }) => {
     />
   );
 };
-
-export default SearchResult;

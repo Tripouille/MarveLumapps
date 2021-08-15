@@ -2,7 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { CharacterDetails } from "../components/CharacterDetails";
 import { Header } from "../components/Header";
-import { SearchResults, Welcome } from "../components";
+import { SearchResults } from "../components/SearchResults";
+import { Welcome } from "../components";
 
 enum Path {
   result = "/results",

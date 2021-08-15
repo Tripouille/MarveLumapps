@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Alignment, Button, FlexBox, TextField, Theme } from "@lumx/react";
 import { mdiMagnify } from "@lumx/icons";
@@ -8,7 +7,7 @@ interface IProps {
   resultPath: string;
 }
 
-const SearchField: React.FC<IProps> = ({ resultPath }) => {
+export const SearchField: React.FC<IProps> = ({ resultPath }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const history = useHistory();
 
@@ -42,5 +41,3 @@ const SearchField: React.FC<IProps> = ({ resultPath }) => {
     </FlexBox>
   );
 };
-
-export default SearchField;
