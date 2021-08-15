@@ -1,7 +1,7 @@
 import React from "react";
 import { FlexBox, Alignment, Button, Thumbnail, AspectRatio } from "@lumx/react";
 import { Link } from "react-router-dom";
-import { ICharacter } from "../../Utils/types";
+import { ICharacter } from "../../utils/types";
 
 interface IProps {
   character: ICharacter;

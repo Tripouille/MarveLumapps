@@ -4,7 +4,7 @@ import { CharactersList } from "../CharactersList";
 import { Pagination } from "../Pagination";
 import { getCharacters } from "../../api";
 import { DataConsumer, EDataStatus } from "../DataConsumer";
-import { ICharacter } from "../../Utils/types";
+import { ICharacter } from "../../utils/types";
 
 interface IParams {
   searchQuery: string;

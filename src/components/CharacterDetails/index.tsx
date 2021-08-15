@@ -9,7 +9,7 @@ import {
   getCharacterComics,
   getCharacterEvents,
 } from "../../api";
-import { ICharacterDetails } from "../../Utils/types";
+import { ICharacterDetails } from "../../utils/types";
 import { CharacterEventsList } from "../CharacterEventsList";
 
 interface IParams {

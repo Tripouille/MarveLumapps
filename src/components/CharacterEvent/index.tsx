@@ -1,6 +1,6 @@
 import React from "react";
 import { FlexBox, Alignment } from "@lumx/react";
-import { IEvent } from "../../Utils/types";
+import { IEvent } from "../../utils/types";
 
 interface IProps {
   event: IEvent;

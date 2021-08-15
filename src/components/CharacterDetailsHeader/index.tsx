@@ -1,7 +1,7 @@
 import { Alignment, Button, FlexBox } from "@lumx/react";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { ICharacter } from "../../Utils/types";
+import { ICharacter } from "../../utils/types";
 
 interface IProps {
   character?: ICharacter;

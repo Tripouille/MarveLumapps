@@ -1,6 +1,6 @@
 import axios from "axios";
-import { API_KEY } from "../Utils/constants";
-import { formatCharacter, formatComic } from "../Utils/format";
+import { API_KEY } from "../utils/constants";
+import { formatCharacter, formatComic } from "../utils/format";
 import {
   ICharactersInfos,
   ICharactersQueryParams,
@@ -8,7 +8,7 @@ import {
   IEvent,
   IComicsQueryParams,
   IEventsQueryParams,
-} from "../Utils/types";
+} from "../utils/types";
 
 const instance = axios.create({
   baseURL: "https://gateway.marvel.com/v1/public/",

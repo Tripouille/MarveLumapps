@@ -4,7 +4,7 @@ import { CharacterDetails } from "../components/CharacterDetails";
 import { Header } from "../components/Header";
 import { SearchResults } from "../components/SearchResults";
 import { Welcome } from "../components/Welcome";
-import { Path } from "../Utils/constants";
+import { Path } from "../utils/constants";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Comic } from "../Comic";
-import { IComic } from "../../Utils/types";
+import { IComic } from "../../utils/types";
 
 interface IProps {
   title: string;
