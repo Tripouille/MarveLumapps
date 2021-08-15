@@ -1,5 +1,5 @@
 import React from "react";
-import { Comic } from "..";
+import { Comic } from "../Comic";
 import { IComic } from "../../Utils/types";
 
 interface IProps {

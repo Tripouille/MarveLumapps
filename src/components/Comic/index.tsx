@@ -9,14 +9,12 @@ interface IProps {
   };
 }
 
-const Comic: React.FC<IProps> = ({ comic }) => {
+export const Comic: React.FC<IProps> = ({ comic }) => {
   return (
-    <FlexBox className="comic-flexbox" hAlign={Alignment.center}>
+    <FlexBox className="comic-container" hAlign={Alignment.center}>
       <h3 className="comic-name">{comic.title}</h3>
-      <p className="comic-onsale">On sale: {comic.onsale}</p>
-      <p className="comic-price">Price: ${comic.price}</p>
+      <p>On sale: {comic.onsale}</p>
+      <p>Price: ${comic.price}</p>
     </FlexBox>
   );
 };
-
-export default Comic;
