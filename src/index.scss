@@ -1,30 +1,30 @@
-@import '~@lumx/core/scss/lumx.scss';
+@import "~@lumx/core/scss/lumx.scss";
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-@import './App/App.scss';
-@import './components/Header/Header.scss';
-@import './components/SearchField/SearchField.scss';
-@import './components/Welcome/Welcome.scss';
-@import './components/Pagination/Pagination.scss';
-@import './components/Character/Character.scss';
-@import './components/SearchResults/SearchResults.scss';
-@import './components/DataConsumer/DataConsumer.scss';
-@import './components/CharacterDetails/CharacterDetails.scss';
-@import './components/CharacterDetailsHeader/CharacterDetailsHeader.scss';
-@import './components/Comic/Comic.scss';
-@import './components/ComicsList/ComicsList.scss';
-@import './components/CharacterEvent/CharacterEvent.scss';
-@import './components/CharacterEventsList/CharacterEventsList.scss';
+@import "./App/App.scss";
+@import "./components/Header/Header.scss";
+@import "./components/SearchField/SearchField.scss";
+@import "./components/Welcome/Welcome.scss";
+@import "./components/Pagination/Pagination.scss";
+@import "./components/Character";
+@import "./components/SearchResults/SearchResults.scss";
+@import "./components/DataConsumer/DataConsumer.scss";
+@import "./components/CharacterDetails";
+@import "./components/CharacterDetailsHeader";
+@import "./components/Comic/Comic.scss";
+@import "./components/ComicsList/ComicsList.scss";
+@import "./components/CharacterEvent/CharacterEvent.scss";
+@import "./components/CharacterEventsList/CharacterEventsList.scss";

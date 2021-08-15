@@ -1,5 +1,5 @@
 import React from "react";
-import { Character } from "..";
+import { Character } from "../Character";
 import { ICharacter } from "../../Utils/types";
 
 interface IProps {
@@ -7,7 +7,10 @@ interface IProps {
   detailsPath: string;
 }
 
-const CharactersList: React.FC<IProps> = ({ characters, detailsPath }) => {
+export const CharactersList: React.FC<IProps> = ({
+  characters,
+  detailsPath,
+}) => {
   return (
     <>
       {characters.map((character: ICharacter, i: number) => (

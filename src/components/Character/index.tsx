@@ -8,7 +8,7 @@ interface IProps {
   path: string;
 }
 
-const Character: React.FC<IProps> = ({ character, path }) => {
+export const Character: React.FC<IProps> = ({ character, path }) => {
   return (
     <FlexBox className="character-flexbox" vAlign={Alignment.left}>
       <Thumbnail className="character-image" image={character.image} alt={character.name} aspectRatio={AspectRatio.original} />
@@ -24,5 +24,3 @@ const Character: React.FC<IProps> = ({ character, path }) => {
     </FlexBox>
   );
 };
-
-export default Character;

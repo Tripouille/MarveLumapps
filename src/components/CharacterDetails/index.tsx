@@ -19,7 +19,7 @@ interface IParams {
   characterId: string;
 }
 
-const CharacterDetails: React.FC = () => {
+export const CharacterDetails: React.FC = () => {
   const { characterId } = useParams<IParams>();
   const [dataProvider, setDataProvider] = useState<{
     dataStatus: EDataStatus;
@@ -34,9 +34,8 @@ const CharacterDetails: React.FC = () => {
   });
 
   useEffect(() => {
-    if (dataProvider.dataStatus !== EDataStatus.loading)
-      setDataProvider({ ...dataProvider, dataStatus: EDataStatus.loading });
-    const loadCharacters = async () => {
+    //loadCharacters
+    (async () => {
       try {
         const charactersPromise = getCharacter(characterId);
         const comicsPromise = getCharacterComics({
@@ -71,8 +70,7 @@ const CharacterDetails: React.FC = () => {
       } catch {
         setDataProvider({ ...dataProvider, dataStatus: EDataStatus.error });
       }
-    };
-    loadCharacters();
+    })();
     // eslint-disable-next-line
   }, [characterId]);
 
@@ -96,5 +94,3 @@ const CharacterDetails: React.FC = () => {
     />
   );
 };
-
-export default CharacterDetails;
